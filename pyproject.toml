@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "refidxdb"
+name = "refidx2se"
 version = "0.1.0"
 description = "Lightweight interface to the refractiveindex.info database with refellips support"
 readme = "README.md"
@@ -42,12 +42,12 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/agauer/refidxdb"
-"Bug Tracker" = "https://github.com/agauer/refidxdb/issues"
+Homepage = "https://github.com/agauer/refidx2se"
+"Bug Tracker" = "https://github.com/agauer/refidx2se/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["refidxdb*"]
+include = ["refidx2se*"]
 
 # ── Ruff (linter + formatter) ────────────────────────────────────────────────
 [tool.ruff]
@@ -61,7 +61,7 @@ ignore = ["B905", "E402"]
 [tool.ruff.lint.isort]
 combine-as-imports = true
 force-sort-within-sections = true
-known-first-party = ["refidxdb"]
+known-first-party = ["refidx2se"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -76,4 +76,4 @@ ignore_missing_imports = true
 # ── Pytest ───────────────────────────────────────────────────────────────────
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=refidxdb --cov-report=term-missing"
+addopts = "--cov=refidx2se --cov-report=term-missing"
