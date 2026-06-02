@@ -1,8 +1,8 @@
-# refidxdb
+# refidx2se
 
-[![CI](https://github.com/agauer/refidxdb/actions/workflows/ci.yml/badge.svg)](https://github.com/agauer/refidxdb/actions)
-[![PyPI](https://img.shields.io/pypi/v/refidxdb)](https://pypi.org/project/refidxdb/)
-[![Python](https://img.shields.io/pypi/pyversions/refidxdb)](https://pypi.org/project/refidxdb/)
+[![CI](https://github.com/agauer/refidx2se/actions/workflows/ci.yml/badge.svg)](https://github.com/agauer/refidx2se/actions)
+[![PyPI](https://img.shields.io/pypi/v/refidx2se)](https://pypi.org/project/refidx2se/)
+[![Python](https://img.shields.io/pypi/pyversions/refidx2se)](https://pypi.org/project/refidx2se/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A lightweight Python interface to the [refractiveindex.info](https://refractiveindex.info) database, with built-in conversion to [`refellips`](https://github.com/refnx/refellips) `RI` objects for spectroscopic ellipsometry workflows.
@@ -17,14 +17,14 @@ A lightweight Python interface to the [refractiveindex.info](https://refractivei
 ## Installation
 
 ```bash
-pip install refidxdb
+pip install refidx2se
 ```
 
 Or from source:
 
 ```bash
-git clone https://github.com/agauer/refidxdb.git
-cd refidxdb
+git clone https://github.com/agauer/refidx2se.git
+cd refidx2se
 pip install -e ".[dev]"
 ```
 
@@ -32,12 +32,12 @@ pip install -e ".[dev]"
 
 ```python
 import numpy as np
-import refidxdb
+import refidx2se
 from refellips.reflect_modelSE import ReflectModelSE
 from refellips.dispersion import RI, load_material
 
 # 1. Explore available entries
-refidxdb.print_material_options("SiO2")
+refidx2se.print_material_options("SiO2")
 # 4 entries matching 'SiO2':
 #   option   shelf        book                      page                                description
 #   -------- ------------ ------------------------- ----------------------------------- ---------------------------------------------
@@ -45,11 +45,11 @@ refidxdb.print_material_options("SiO2")
 #   1        main         SiO2                      ...
 
 # 2. Pick one by index
-shelf, book, page = refidxdb.return_material_option("SiO2", idx=0)
+shelf, book, page = refidx2se.return_material_option("SiO2", idx=0)
 
 # 3. Load into refellips
 wavelengths = np.linspace(400, 900, 200)   # nm
-ri = refidxdb.rim_to_refellips(shelf, book, page, wavelengths)
+ri = refidx2se.rim_to_refellips(shelf, book, page, wavelengths)
 
 # 4. Create a model
 si = load_material("silicon")
