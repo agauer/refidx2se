@@ -46,7 +46,7 @@ Homepage = "https://github.com/agauer/refidx2se"
 "Bug Tracker" = "https://github.com/agauer/refidx2se/issues"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
 include = ["refidx2se*"]
 
 # ── Ruff (linter + formatter) ────────────────────────────────────────────────
